@@ -1,5 +1,4 @@
 import random
-import quicksortcrafter_hi as q_hi
 
 liste = random.sample(range(0,100),90)
 #print(liste)
@@ -14,7 +13,6 @@ def bubblesort(liste):
 
 folge = [(3**i-1)//2 for i in range(4,0,-1)] #mathematisch sinnvoll für hohe Effizienz
 print(folge)
-
 
 def shellshort(liste):
     for divident in folge:
