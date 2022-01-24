@@ -6,28 +6,28 @@ def bubblesort(liste):
     return liste
 
 
-def shellshort(liste):
+def shellsort(liste):
     f=int(log(len(liste)+1,3))
-    folge = [(3**j-1)//2 for j in range(f,0,-1)] #mathematisch sinnvoll für hohe Effizienz
-    print(folge)
+    folge = [(3**j-1)//2 for j in range(f,0,-1)]     #mathematisch sinnvoll für hohe Effizienz
+    
     for divident in folge:
         liste2d=[]
+        d=0
+    
         for i in range(0,divident):
             liste2d.append([])
-            
-        for i in range(0,len(liste2d)):
-            stelle=i
+            stelle=0
             while stelle<len(liste):
-                liste2d[i].append(liste[stelle])
-                stelle+=divident
-
+                liste2d[i].append(liste.pop(stelle))
+                stelle=stelle+(divident-1)-i
         liste=[]
+            
         for i in liste2d:
             i=bubblesort(i)
 
         for i in range(0,len(liste2d[0])):
             for l in liste2d:
-                if len(l)>i:
-                    liste.append(l[i])  
+                if len(l)>0:
+                    liste.append(l.pop(0))
 
     return liste
